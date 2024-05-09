@@ -45,8 +45,17 @@ describe('Task 3', () => {
         const aHref = await calculatorLandingPage.popUpShareEstimate.rootEl.$('//a[contains(text(),"Open estimate summary")]').getAttribute('href')
         await browser.switchWindow(aHref)
 
-        const totalEstimateCost = await costEstimateSummary.totalEstimateCost.rootEl.$('//h5[text()="Total estimated cost"]/following-sibling::h4').getText()
+        const totalEstimateCost = await costEstimateSummary.totalEstimateCost.totalPrice.getText()
         
         expect(estimateCost).toEqual(totalEstimateCost)
+        expect(await costEstimateSummary.totalEstimateCost.item('numberInstance').getText()).toEqual('4')
+        expect(await costEstimateSummary.totalEstimateCost.item('OS').getText()).toEqual('Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)')
+        expect(await costEstimateSummary.totalEstimateCost.item('provisioningModel').getText()).toEqual('Regular')
+        expect(await costEstimateSummary.totalEstimateCost.item('machineType').getText()).toEqual('n1-standard-8, vCPUs: 8, RAM: 30 GB')
+        expect(await costEstimateSummary.totalEstimateCost.item('gpuModel').getText()).toEqual('NVIDIA Tesla V100')
+        expect(await costEstimateSummary.totalEstimateCost.item('numbersGPU').getText()).toEqual('1')
+        expect(await costEstimateSummary.totalEstimateCost.item('ssd').getText()).toEqual('2x375 GB')
+        expect(await costEstimateSummary.totalEstimateCost.item('region').getText()).toEqual('Netherlands (europe-west4)')
+        expect(await costEstimateSummary.totalEstimateCost.item('commited').getText()).toEqual('1 year')
     })
 })

@@ -1,4 +1,4 @@
-export class AddEstimate {
+export class AddEstimate { 
     get rootEl() {
         return $('//div[@class="kyx3Tb AlLELb"]')
     }
