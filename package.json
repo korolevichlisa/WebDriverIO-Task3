@@ -1,0 +1,13 @@
+{
+  "name": "wdio-task3",
+  "scripts": {
+    "wdio": "wdio run src/config/wdio.conf.js"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@wdio/cli": "^8.36.1",
+    "@wdio/local-runner": "^8.36.1",
+    "@wdio/mocha-framework": "^8.36.1",
+    "@wdio/spec-reporter": "^8.36.1"
+  }
+}
